@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+        <mete charset = "utf-8" />
+        <title>fullpage</title>
+<script src="vue.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+    new Vue({
+        el:'#box',
+        data:{
+            msg:"welcome vue",
+            arr:['apple','orange']
+        }
+    });
+}
+/*
+angular:ng-model    ng-controller
+
+vue:v-model
+双向数据绑定
+
+vue 常见指令：   扩展html标签功能
+    v-model 一般表单 input
+
+*/
+    </script>
+</head>
+    <body>
+        
+        <div id="box">
+            {{msg}}
+            <input type="text" v-model="msg" /></br>
+            <input type="text" v-model="msg"/>
+        </div>
+       <ul>
+            <li v-for="value in arr">
+                {{value}}
+            </li>
+       </ul>
+        
+    </body>
+</html>

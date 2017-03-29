@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+        <mate charset = "utf-8"/>
+        <title>fullpage</title>
+        <link rel="stylesheet" href="lib/bootstrap.min.css">
+        <script src="vue.js"></script>
+<script src="lib/jquery-1.7.2.js"></script>
+<script src="lib/bootstrap.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+new Vue({
+    el:"#box",
+    data:{
+        url:"https://www.baidu.com/img/bd_logo1.png",
+        width:"200px",
+        height:"200px",
+        t:"这是一张图片"
+    },
+    methods:{
+        show:function(){
+            alert("你点击了enter");
+        },
+        showt:function(e,b){
+            alert(e.clientX);
+            alert(b)
+        },
+        show2:function(){
+            alert("show2")
+           // ev.cancelBubble=true;
+        },
+        show3:function(){
+            alert("show3");
+        },
+        show5:function(e){
+            alert(e.keyCode);//弹出键盘码
+        }
+    }
+})
+
+}
+/*
+vue事件
+简写 @click=""   v-on:click=""
+事件对象$event
+
+事件冒泡    阻止
+show2:function(ev){
+            alert("show2")
+            ev.cancelBubble=true;
+        }
+
+@click.stop="show()"    //阻止冒泡
+
+
+阻止默认行为：
+e.preventDefault();
+@contextmenu.prevent    阻止默认行为
+
+
+键盘事件:
+e.keyCode
+
+up 上
+down 下
+left
+right
+
+enter
+
+
+属性
+v-bind:src=""
+:src=""
+vue 
+*/
+</script>
+</head>
+<body>
+    <div id="box" @click="show()">
+        <img :src="url" :width="width" :title="t" :height="height" />
+        <input type="text" value="键码" @keyup="show5($event)"/>
+        <input type="button" value="按钮3" @contextmenu="show3()"/>
+        <input type="button" value="按钮1" @click.stop="show2($event)" />
+        <input type="button" value="按钮" @click="showt($event,12)"/>
+        <input type="text" @keyup.enter = "show()">
+    </div>
+
+</body>
+</html>

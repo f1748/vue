@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+        <mate charset = "utf-8"/>
+        <title>fullpage</title>
+        <link rel="stylesheet" href="lib/bootstrap.min.css">
+        
+<script src="lib/jquery-1.7.2.js"></script>
+<script src="lib/bootstrap.js"></script>
+<script src="vue.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+    var vm = new Vue({
+        el:"#box",
+        aa:1,
+        data:{
+            a: 100
+        },
+        /*
+        created:function(){
+            alert("实例创建");
+        },
+        beforeCompile:function(){
+            alert("编译之前")
+        },
+        compiled:function(){
+            alert("编译之后")
+        },
+        ready:function(){
+            alert("插入到文档")
+        },*/
+        computed:{
+            
+            b:{
+                get:function(){
+                    return this.a+2;
+                },
+                set:function(val){
+                    this.a=val;
+                }
+            }
+        }
+
+        
+    })
+console.log(vm.$options.aa)
+}
+
+/*
+vue生存周期：
+    钩子函数
+    created: -> 实例已经创建的时候
+    beforeCompile ->编译之前
+    ready 插入到文档
+
+    computed:计算属性
+    computed:{
+        b:function(){
+
+        }
+    }
+
+computed:{
+    b:function(){
+        set:function(){
+            return this.a+1 //获取值
+        },
+        set:function(val){
+            this.a = val //设置值
+        }
+    }
+}
+
+vm.$mount -> 手动挂载vue程序
+vm.$options.aa   ==> 访问自定义属性
+vm.$destroy ==>销毁对象
+    销毁
+*/
+</script>
+</head>
+<body>
+    <div id="box">
+    a ==> {{a}}</br>
+    b ==> {{b}}
+    </div>
+
+</body>
+</html>

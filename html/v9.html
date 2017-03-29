@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+        <mate charset = "utf-8"/>
+        <title>fullpage</title>
+        <link rel="stylesheet" href="lib/bootstrap.min.css">
+        
+<script src="lib/jquery-1.7.2.js"></script>
+<script src="lib/bootstrap.js"></script>
+<script src="vue.js"></script>
+<script type="text/javascript">
+
+
+/*
+vue生存周期：
+ created:function(){
+            alert("实例创建");
+        },
+        beforeCompile:function(){
+            alert("编译之前")
+        },
+        compiled:function(){
+            alert("编译之后")
+        },
+        ready:function(){
+            alert("插入到文档")
+        },
+
+    钩子函数
+    created: -> 实例已经创建的时候
+    beforeCompile ->编译之前
+    ready 插入到文档
+
+    computed:计算属性
+    computed:{
+        b:function(){
+
+        }
+    }
+
+computed:{
+    b:function(){
+        set:function(){
+            return this.a+1 //获取值
+        },
+        set:function(val){
+            this.a = val //设置值
+        }
+    }
+}
+
+vm.$mount -> 手动挂载vue程序
+vm.$options.aa   ==> 访问自定义属性
+vm.$destroy ==>销毁对象
+vm.$log()  ==>查看现在数据的状态
+
+v-for="value in data"  循环重复数据添加 会失败 
+需要添加 track-by="$index"
+
+
+事件过滤器: 
+debounce    配合事件 延迟 debounce 2000 // 2s
+@keyup="show()|debounce 2000"   延迟两秒触发 show() 函数
+
+limitBy 数组 取值范围
+v-for="value in arr|limitBy 3"
+limitBy 第二个参数 
+v-for="value in arr|limitBy 3 1" //取3个 第一个开始 //2，3，4
+v-for="value in arr|limitBy 2 arr.length-2" // 取倒数两个
+
+filterBy  过滤 数组
+<li v-for="value in arr|filterBy a"> //筛选过滤
+
+orderBy 1/-1 正序/倒序 排序
+
+    销毁
+*/
+</script>
+</head>
+<body>
+   <div id="box">
+       <input type="text" v-model="a">
+       <ul>
+           <li v-for="value in arr|filterBy a|orderBy 1">
+               {{value}}
+           </li>
+       </ul>
+
+   </div>
+<script>
+    var vm = new Vue({
+        el:"#box",
+        data:{
+            arr:['fan','sdfdsf','sdfsd','sdfsac','xcxfg'],
+            a:""//初始化数据
+        },
+        methods:{
+            show:function(){
+                alert(1)
+            }
+        }
+        
+    })
+</script>
+</body>
+</html>

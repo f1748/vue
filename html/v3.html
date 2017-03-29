@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+        <mete charset = "utf-8" />
+        <title>fullpage</title>
+<script src="vue.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap.css" />
+<script src="bootstrap.min.js"></script>
+<script src="jquery.min.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+       var vm = new Vue({
+        el:"#box",//选择器
+        data:{
+            a:true,
+            json:{a:"apple",b:"orange",c:"banner"}
+        },
+        methods:{
+            show:function(){
+                alert(1);
+            },
+            add:function(){
+               this.a=false;
+            }
+        }
+    });
+}
+/*
+angular:ng-model    ng-controller
+
+vue:v-model 一般input表单
+双向数据绑定
+
+循环： v-for=“name in json”
+vue 常见指令：   扩展html标签功能
+    v-model 一般表单 input
+
+*/
+    </script>
+</head>
+    <body>
+        <div id="box">
+            <ul>
+                <li v-for="name in arr">
+                    {{name}}    {{$index}}
+                </li>
+            </ul>
+            <ul>
+                <li v-for = "(k,v) in json">
+                    {{k}}   {{v}}
+                </li>
+            </ul>
+            
+
+            <input type="button" value="按钮" v-on:click="add()" />
+            <div style="width:100px;height:100px;background:red;" v-show="a"></div>
+        </div>
+    </body>
+</html>

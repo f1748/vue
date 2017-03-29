@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+        <mate charset = "utf-8"/>
+        <title>fullpage</title>
+        <link rel="stylesheet" href="lib/bootstrap.min.css">
+        <script src="vue.js"></script>
+<script src="lib/jquery-1.7.2.js"></script>
+<script src="lib/bootstrap.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+new Vue({
+    el:"#box",
+    data:{
+         message: "abc"
+    }
+    
+})
+
+}
+/*
+模板：
+{{msg}}
+{{{msg}}} html 转义输出
+{{*msg}} 只绑定一次数据
+
+
+过滤器
+
+*/
+</script>
+</head>
+<body>
+    <div id="box">
+        {{message | uppercase}}
+        <!--<input type="text" v-model="msg" /></br>
+        {{msg}}
+         </br>
+        {{{msg}}}-->
+    </div>
+
+</body>
+</html>
